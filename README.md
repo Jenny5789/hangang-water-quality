@@ -43,6 +43,7 @@
 - [x] 데이터 수집 & 병합
 - [x] 데이터 정제 (결측치 처리, 균등화)
 - [x] EDA 기본 (박스플롯)
+- [x] 지점별 평균값 분석(바 차트)
 - [ ] 시계열 분석 (월별, 계절별)
 - [ ] Tableau 대시보드
 - [ ] 최종 보고서
@@ -53,12 +54,14 @@
 hangang-water-quality/
 ├── notebooks/
 │   ├── 01_data_merge.ipynb                     # 데이터 병합 & 정제
-│   └── 02_eda_boxplot.ipynb                    # EDA 박스플롯 
+│   ├── 02_eda_boxplot.ipynb                    # EDA 박스플롯 분석
+│   └── 03_comparison.ipynb                     # 지점별 평균값 비교 (바차트)
 ├── data/
 │   ├── raw/                                    # 원본 데이터
 │   └── processed/                              # 가공 데이터
 ├── outputs/
-│   └── 02_5indicators_boxplot.png              # 박스플롯 시각화
+│   ├── 02_5indicators_boxplot.png              # 박스플롯 시각화
+│   └── 03_comparison_barchart.png              # 평균값 비교 바차트
 └── README.md
 ```
 
@@ -66,7 +69,7 @@ hangang-water-quality/
 
 ## 📈 분석 결과
 
-###  EDA - 박스플롯 분석
+### #02 EDA - 박스플롯 분석
 **분석 항목:** DO, BOD, COD, TP, TN (지점별 오염도 분포)
 
 **결과:**
@@ -76,6 +79,22 @@ hangang-water-quality/
 - 모든 지표에서 이상치(outlier) 없음
 - 환경기준 초과 지점 없음
 
+---
+
+### #03 지점별 평균값 비교 
+ 
+**분석 항목:** 5개 지점의 평균값 시각화 (바차트)
+ 
+**주요 결과:**
+ 
+| 지표 | 특징 |
+|------|------|
+| **DO** | 전 지점 Ia등급으로 산소 포화도 우수 |
+| **BOD** | 증가 추세 있으나 II등급 이내로 양호 |
+| **COD** | 중류에서 소폭 상승 후 안정화 |
+| **TP** | 상류→하류 약 1.35배 증가로 주의 필요 |
+| **TN** | 뚜렷한 증가 추세 (기준 없음) |
+ 
 ---
 
 ## 🛠️ 사용 기술
