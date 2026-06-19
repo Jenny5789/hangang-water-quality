@@ -23,7 +23,7 @@
    - 계절에 따른 수질 변화 패턴 분석
 
 4. **Streamlit 대시보드 시각화**
-   - 분석 결과를 인터랙티브하게 표현
+   - 분석 결과를 4개의 탭으로 표현
 
 ---
 
@@ -46,8 +46,8 @@
 - [x] EDA 기본 (박스플롯)
 - [x] 지점별 평균값 분석(바 차트)
 - [x] 시계열 분석 (월별, 계절별, 년도별)
-- [ ] Streamlit 대시보드
-- [ ] 최종 보고서
+- [x] Streamlit 대시보드
+- [x] 최종 보고서
 ---
 
 ## 📁 폴더 구조
@@ -58,13 +58,15 @@ hangang-water-quality/
 │   ├── 02_eda_boxplot.ipynb                    # EDA 박스플롯 분석
 │   ├── 03_comparison.ipynb                     # 지점별 평균값 비교 (바차트)
 │   ├── 04_timeseries.ipynb                     # 시계열 분석(월별, 계절별, 년도별)
-│   └── 05_conclusion.txt                       # 최종 결론 (##5)
+│   ├── 05_conclusion.txt                       # 최종 결론 (##5)
+│   └── app.py                                  # Streamlit 시각화
 ├── data/
 │   ├── raw/                                    # 원본 데이터
 │   └── processed/                              # 가공 데이터
 ├── outputs/
 │   ├── 02_5indicators_boxplot.png              # 박스플롯 시각화
 │   └── 03_comparison_barchart.png              # 평균값 비교 바차트
+├── requirements.txt
 └── README.md
 ```
 
@@ -135,11 +137,152 @@ hangang-water-quality/
 - 지류 관리 필수
 
 ---
-
-## 🛠️ 사용 기술
-Python · Pandas ·  Jupyter Notebook
-
+ 
+### ##5 최종 결론
+ 
+**종합 분석 결과:**
+ 
+**🔍 관찰된 사실:**
+1. 지점별 수질 차이가 뚜렷함 (상류 > 중류 > 하류 경향)
+2. 계절별 변화가 크다 (여름 최고, 겨울 최저, 약 2~2.5배)
+3. 년도별 개선 추세 관찰 (2023~2026년 DO 증가)
+4. 환경기준 대체로 충족 (성내천 TP만 주의)
+**💡 주요 해석:**
+- **성내천의 오염도가 높다:** 모든 지표에서 다른 지점보다 높음
+- **영양염 축적:** TN 상류 2.48 → 하류 4.26 (1.7배 증가)
+- **계절별 수질 변동은 자연적:** 수온 저하로 인한 산소 용해도 감소
+- **최근 개선 신호:** 2026년 상반기 DO 증가
+**📋 최종 평가:**
+- ✅ 한강 전체 수질은 환경기준 충족
+- ⚠️ 성내천이 특별한 관심 필요
+- ✅ 최근 수질 개선 경향 긍정적
 ---
-
+ 
+## 🖥️ 실행 방법
+ 
+### 1️⃣ 저장소 클론
+ 
+```bash
+git clone https://github.com/Jenny5789/hangang-water-quality.git
+cd hangang-water-quality
+```
+ 
+### 2️⃣ 가상환경 생성 (처음 한 번만)
+ 
+```bash
+python -m venv venv
+```
+ 
+### 3️⃣ 가상환경 활성화
+ 
+**Windows:**
+```bash
+.\venv\Scripts\activate.bat
+```
+ 
+**Mac/Linux:**
+```bash
+source venv/bin/activate
+```
+ 
+### 4️⃣ 라이브러리 설치
+ 
+```bash
+pip install -r requirements.txt
+```
+ 
+### 5️⃣ Streamlit 앱 실행
+ 
+```bash
+streamlit run outputs/app.py
+```
+ 
+### 6️⃣ 브라우저 자동 실행
+ 
+`http://localhost:8501` 자동 실행
+ 
+---
+ 
+## 💡 다음부터 (간단하게)
+ 
+```bash
+cd hangang-water-quality
+.\venv\Scripts\activate.bat
+streamlit run outputs/app.py
+```
+ 
+---
+ 
+## 🖥️ Streamlit 대시보드
+ 
+**4개 탭으로 구성된 인터랙티브 대시보드:**
+ 
+| 탭 | 내용 | 기능 |
+|:---:|------|------|
+| **Tab 1** | 📊 박스플롯 분석 (##2) | 지점별 오염도 분포, 지표 선택 가능 |
+| **Tab 2** | 📈 평균값 비교 (##3) | 상류→하류 오염도 변화, 바차트 시각화 |
+| **Tab 3** | ⏱️ 시계열 분석 (##4) | 월별/계절별/년도별 변화 추세 |
+| **Tab 4** | 📋 최종 결론 | 관찰된 사실, 해석, 결론, 주의사항 |
+ 
+**실행 방법:**
+```bash
+cd hangang-water-quality
+python -m venv venv
+.\venv\Scripts\activate.bat  # Windows
+source venv/bin/activate      # Mac/Linux
+pip install streamlit pandas plotly
+streamlit run app.py
+```
+ 
+**브라우저에서 자동으로 `http://localhost:8501` 실행**
+ 
+---
+ 
+## 🛠️ 사용 기술
+ 
+**Data Analysis & Visualization:**
+- Python 3.12
+- Pandas (데이터 처리)
+- NumPy (수치 계산)
+- Plotly (인터랙티브 시각화)
+- Matplotlib (정적 시각화)
+**Dashboard & Deployment:**
+- Streamlit (대시보드 구축)
+- Jupyter Notebook (분석 개발)
+**Environment:**
+- Virtual Environment (venv)
+- GitHub (버전 관리)
+---
+ 
+## 📌 주요 인사이트
+ 
+### 1️⃣ 성내천 관리가 한강 수질의 열쇠
+ 
+성내천이라는 작은 지류가 한강 전체 수질에 미치는 영향이 상당합니다.
+성내천 오염원 관리를 우선적으로 추진해야 합니다.
+ 
+### 2️⃣ 계절별 관리 필수
+ 
+겨울에 수질이 급격히 악화되므로 계절별 동적 관리 체계가 필요합니다.
+특히 겨울철 폭기 시설 운영이 중요합니다.
+ 
+### 3️⃣ 최근 개선 신호
+ 
+2026년 상반기의 DO 증가는 적절한 관리가 결과를 만든다는 증거입니다.
+지속적인 모니터링과 관리가 중요합니다.
+ 
+---
+ 
+## 📚 데이터 소스
+ 
+- **물환경정보시스템:** https://water.nier.go.kr/
+- **한강수계:** 팔당댐2, 성내천, 보광, 노량진, 영등포
+- **분석 자료 기간:** 2023년 07월 ~ 2026년 06월
+---
+ 
+ 
 ## 📄 라이선스
+ 
 MIT License
+ 
+---
