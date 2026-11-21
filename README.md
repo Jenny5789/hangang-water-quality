@@ -6,8 +6,6 @@ pandas·Plotly·Streamlit을 활용한 **환경 정형 데이터 분석 프로�
 
 `Python` · `pandas` · `Plotly` · `Matplotlib` · `Streamlit` · `Jupyter Notebook`
 
-<img src="outputs/02_5indicators_boxplot.png" alt="수질 지표 박스플롯" width="88%" />
-
 </div>
 
 ---
@@ -29,7 +27,7 @@ pandas·Plotly·Streamlit을 활용한 **환경 정형 데이터 분석 프로�
 **분석 파이프라인**
 
 <p align="center">
-  <img src="docs/readme/pipeline.svg" alt="한강 수질 분석 파이프라인" width="100%">
+  <img src="docs/readme/pipeline.png" alt="한강 수질 분석 파이프라인" width="85%">
 </p>
 
 **데이터 구조**
@@ -43,10 +41,15 @@ pandas·Plotly·Streamlit을 활용한 **환경 정형 데이터 분석 프로�
 
 ## 2. 주요 결과 화면
 
-| 지점별 수질 지표 분포 (박스플롯) | 지점별 평균값 비교 (바차트) |
-| --- | --- |
-| <img src="outputs/02_5indicators_boxplot.png" width="100%" alt="박스플롯"> | <img src="outputs/03_comparison_barchart.png" width="100%" alt="바차트"> |
-| ① 5개 지점·5개 지표 분포 및 이상치 파악 | ② 상류→지류→중류→하류 평균값 흐름 비교 |
+| 지점별 수질 지표 분포 (박스플롯) |
+| --- |
+| <img src="outputs/02_5indicators_boxplot.png" width="88%" alt="박스플롯"> |
+| ① 5개 지점·5개 지표 분포 및 이상치 파악 |
+
+| 지점별 평균값 비교 (바차트) |
+| --- |
+| <img src="outputs/03_comparison_barchart.png" width="88%" alt="바차트"> |
+| ② 상류→지류→중류→하류 평균값 흐름 비교 |
 
 ---
 
